@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Phone, MapPin } from 'lucide-react';
 import petukLogo from '@/assets/petuk-logo.png';
 
 const Footer = () => {
@@ -8,8 +8,7 @@ const Footer = () => {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About Us' },
     { href: '#menu', label: 'Menu' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#reservations', label: 'Book Table' },
+    { href: '#testimonials', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -92,15 +91,6 @@ const Footer = () => {
                     className="text-accent-foreground/80 hover:text-primary-foreground transition-colors"
                   >
                     09830132779
-                  </a>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 flex-shrink-0 mt-0.5 text-secondary" />
-                  <a
-                    href="mailto:contact@petukkolkata.com"
-                    className="text-accent-foreground/80 hover:text-primary-foreground transition-colors"
-                  >
-                    contact@petukkolkata.com
                   </a>
                 </div>
                 <div className="flex items-start gap-3">

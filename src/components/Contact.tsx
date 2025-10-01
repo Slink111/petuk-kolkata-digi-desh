@@ -1,21 +1,6 @@
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import { MapPin, Phone, Clock } from 'lucide-react';
 
 const Contact = () => {
-  const { toast } = useToast();
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you soon. Thank you for contacting us!",
-    });
-    (e.target as HTMLFormElement).reset();
-  };
 
   const openingHours = [
     { day: 'Wednesday', hours: '1:00 PM – 11:00 PM' },
@@ -46,13 +31,13 @@ const Contact = () => {
             {/* Contact Info & Hours */}
             <div className="space-y-8 animate-fade-in-up">
               {/* Contact Details */}
-              <div className="card-elegant p-8">
+              <div className="card-elegant p-8 animate-slide-in-left">
                 <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
                   Contact Details
                 </h3>
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="flex items-start gap-4 hover-lift-subtle">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center animate-pulse-slow">
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -65,32 +50,17 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+                  <div className="flex items-start gap-4 hover-lift-subtle">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center animate-pulse-slow" style={{ animationDelay: '0.2s' }}>
                       <Phone className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">Phone</h4>
                       <a
                         href="tel:09830132779"
-                        className="text-primary hover:underline text-sm"
+                        className="text-primary hover:underline text-sm font-medium"
                       >
                         09830132779
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-accent" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                      <a
-                        href="mailto:contact@petukkolkata.com"
-                        className="text-primary hover:underline text-sm"
-                      >
-                        contact@petukkolkata.com
                       </a>
                     </div>
                   </div>
@@ -98,9 +68,9 @@ const Contact = () => {
               </div>
 
               {/* Opening Hours */}
-              <div className="card-elegant p-8">
+              <div className="card-elegant p-8 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center animate-spin-slow">
                     <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-heading text-2xl font-bold text-foreground">
@@ -111,7 +81,8 @@ const Contact = () => {
                   {openingHours.map((schedule, index) => (
                     <div
                       key={index}
-                      className="flex justify-between items-center py-2 border-b border-border last:border-0"
+                      className="flex justify-between items-center py-2 border-b border-border last:border-0 hover:bg-muted/30 transition-colors rounded px-2 animate-fade-in"
+                      style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       <span className="font-medium text-foreground">{schedule.day}</span>
                       <div className="text-right">
@@ -126,63 +97,14 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form & Map */}
-            <div className="space-y-8 animate-fade-in-up">
-              {/* Contact Form */}
-              <div className="card-elegant p-8">
-                <h3 className="font-heading text-2xl font-bold text-foreground mb-6">
-                  Send Us a Message
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Label htmlFor="contact-name">Name</Label>
-                    <Input
-                      id="contact-name"
-                      name="name"
-                      required
-                      placeholder="Your name"
-                      className="mt-2"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="contact-email">Email</Label>
-                    <Input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      required
-                      placeholder="your@email.com"
-                      className="mt-2"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="contact-message">Message</Label>
-                    <Textarea
-                      id="contact-message"
-                      name="message"
-                      required
-                      placeholder="Your message..."
-                      className="mt-2"
-                      rows={4}
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover-lift"
-                  >
-                    Send Message
-                  </Button>
-                </form>
-              </div>
-
-              {/* Google Map */}
-              <div className="card-elegant p-0 overflow-hidden">
+            {/* Google Map */}
+            <div className="space-y-8 animate-fade-in-up lg:animate-slide-in-right">
+              <div className="card-elegant p-0 overflow-hidden h-full min-h-[600px] lg:min-h-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.3896387!2d88.35927!3d22.57257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM0JzIxLjMiTiA4OMKwMjEnMzMuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.0646749257804!2d88.35681007531944!3d22.580866879478654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02769c0c620a69%3A0xb3ed4df1ee3b1d7a!2sPetuk%20Kolkata!5e0!3m2!1sen!2sin!4v1709556789012"
                   width="100%"
-                  height="300"
-                  style={{ border: 0 }}
+                  height="100%"
+                  style={{ border: 0, minHeight: '600px' }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

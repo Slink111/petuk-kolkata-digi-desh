@@ -19,8 +19,7 @@ const Navbar = () => {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#menu', label: 'Menu' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#reservations', label: 'Book Table' },
+    { href: '#testimonials', label: 'Reviews' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -67,21 +66,17 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <div className="hidden md:flex items-center gap-3">
               <Button
-                variant="outline"
                 size="sm"
                 asChild
-                className="hover-lift"
+                className="hover-lift bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 <a href="tel:09830132779">
                   <Phone className="mr-2 h-4 w-4" />
                   Call Now
                 </a>
-              </Button>
-              <Button size="sm" asChild className="hover-lift bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="#reservations">Book Table</a>
               </Button>
             </div>
 
@@ -110,15 +105,12 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <div className="pt-4 space-y-3">
-                <Button variant="outline" className="w-full" asChild>
+              <div className="pt-4">
+                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
                   <a href="tel:09830132779">
                     <Phone className="mr-2 h-4 w-4" />
                     Call Now
                   </a>
-                </Button>
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                  <a href="#reservations">Book Table</a>
                 </Button>
               </div>
             </div>
@@ -127,7 +119,7 @@ const Navbar = () => {
       </nav>
 
       {/* Mobile Bottom Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t shadow-lg">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background border-t shadow-lg animate-slide-up">
         <div className="flex items-center justify-around h-16">
           <Button variant="ghost" size="sm" asChild>
             <a href="tel:09830132779" className="flex flex-col items-center gap-1">
@@ -142,7 +134,7 @@ const Navbar = () => {
             </a>
           </Button>
           <Button size="sm" asChild className="bg-primary text-primary-foreground hover:bg-primary/90 px-6">
-            <a href="#reservations">Book Now</a>
+            <a href="https://www.zomato.com/kolkata/petuk-kolkata-hatibagan/order" target="_blank" rel="noopener noreferrer">Order</a>
           </Button>
         </div>
       </div>

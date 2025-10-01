@@ -1,4 +1,4 @@
-import { Phone, Calendar, Utensils } from 'lucide-react';
+import { Phone, Utensils } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import biryaniIllustration from '@/assets/biryani-illustration.png';
 
@@ -41,7 +41,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 mb-12">
             <Button
               size="lg"
-              className="bg-secondary text-accent hover:bg-secondary/90 hover-lift text-lg px-8"
+              className="bg-secondary text-accent hover:bg-secondary/90 hover-lift text-lg px-8 animate-bounce-subtle"
               asChild
             >
               <a href="#menu">
@@ -51,13 +51,11 @@ const Hero = () => {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-accent hover-lift text-lg px-8"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 hover-lift text-lg px-8 animate-pulse-glow"
               asChild
             >
-              <a href="#reservations">
-                <Calendar className="mr-2 h-5 w-5" />
-                Book a Table
+              <a href="https://www.zomato.com/kolkata/petuk-kolkata-hatibagan/order" target="_blank" rel="noopener noreferrer">
+                Order on Zomato
               </a>
             </Button>
             <Button
